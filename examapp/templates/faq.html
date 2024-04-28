@@ -1,0 +1,34 @@
+{% include 'nav.html'%}
+<style>
+    .border_div{
+        width: 75%;
+        margin: auto;
+        min-height: 400px;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        margin-top: 10px;
+        border-radius: 30px;
+    }
+    .que{
+        margin-left: 20px;
+        border: 1px solid lightgray;
+        margin-top: 30px;
+        border-radius: 10px;
+        padding-left: 20px;
+    }
+    
+</style>
+<div class="border_div">
+    <hr style="color: orange;">
+    <h2 style="text-align: center;">FAQ Page</h2>
+    <hr style="color: orange;"><br>
+    {%for i in data%}
+    <div class="que">
+        <details>
+            <summary>{{i.question}}</summary>
+            {{i.answer|safe}}
+        </details>
+    </div>
+    {%endfor%}
+</div>
+{%include 'footer.html'%}

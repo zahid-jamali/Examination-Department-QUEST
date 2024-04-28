@@ -1,0 +1,98 @@
+{%include 'nav.html'%}
+<style>
+    .form{
+        width: 70%;
+        margin: auto;
+    }
+</style>
+<div class="container" style="background-color: whitesmoke;">
+    <h2 style="text-align: center;">Register Your Self</h2>
+    <div class="form">
+        <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="Full Name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Father Name</label>
+                <input type="text" class="form-control" name="fathername" id="exampleFormControlInput1" placeholder="S/of" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Address</label>
+                <input type="text" class="form-control" name="address" id="exampleFormControlInput1" placeholder="Complete Address" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">CNIC</label>
+                <input type="number" class="form-control" name="cnic" id="exampleFormControlInput1" placeholder="Identy Card Number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">HSC Board</label>
+                <input type="text" class="form-control" name="hscboard" id="exampleFormControlInput1" placeholder="Board of HSC-II" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">HSC Percentage</label>
+                <input type="number" class="form-control" name="hscpercentage" id="exampleFormControlInput1" placeholder="Percentage in HSC" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Domicile</label>
+                <input type="text" class="form-control" name="domicile" id="exampleFormControlInput1" placeholder="District of Domicile" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="Your@email.com" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Phone number</label>
+                <input type="number" class="form-control" name="phone" id="exampleFormControlInput1" value="+92" placeholder="+923012345678" required>
+            </div>
+
+
+            <div class="form-check form-switch">
+                <label class="form-check-label" for="mySwitch">Currently Enrolled in QUEST</label>    
+                <input class="form-check-input" type="checkbox" id="mySwitch" name="isquestian" value="True" checked>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Department</label>
+                <input type="text" class="form-control" name="department" id="exampleFormControlInput1" placeholder="Department at Quest">
+            </div>
+
+            <select class="form-select" name="course" aria-label="Apply at" required>
+                {%for i in cat%}
+                <option value="{{i.Category}}">{{i.Category}}</option>
+                {%endfor%}
+              </select>
+
+              <div class="mb-3">
+                <label for="formFile" class="form-label">CNIC Front</label>
+                <input class="form-control" type="file" name="cnicfront" id="formFile" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="formFile" class="form-label">CNIC Back</label>
+                <input class="form-control" type="file" name="cnicback" id="formFile" required>
+              </div>
+
+
+
+              
+                <button type="submit" class="btn btn-secondary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset it</button>
+
+        </form>
+    </div>
+</div>
+
+
+{%include 'footer.html'%}

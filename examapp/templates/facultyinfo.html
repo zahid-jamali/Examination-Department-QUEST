@@ -1,0 +1,44 @@
+{% include 'nav.html' %}
+
+<script src="sliderengine/initslider-1.js"></script>
+<style type="text/css">
+  .main_class{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+  }
+  img{
+    widows: 40%;
+    border-radius: 40%;
+    border: 2px solid black;
+  }
+</style>
+
+    <div class="container">
+
+    {%for i in fac%}
+
+
+      <div class="main_class">
+        <div class="img">
+          <img src="/media/{{i.img}}" style="max-width: 250px;">
+        </div>
+          <h2>{{i.name}}</h2>
+          <h4>{{i.appointment}}</h4>
+          <p style="text-align: justify;">
+            {{i.desc| safe}}
+        </p>
+
+        <hr style="color: orange;">
+        <p>Contact Info: <i>{{i.contact}}</i></p>
+      </div>
+
+      {%endfor%}
+    </div>
+
+{% include 'footer.html' %}

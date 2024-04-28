@@ -1,0 +1,44 @@
+{% include 'nav.html'%}
+
+<style>
+.card{
+        background-color: whitesmoke;
+}
+body{
+        background-color: lightgray;
+}
+
+</style>
+
+
+
+<div class="container">
+
+        <div class="row mt-1">
+{%for i in data%}
+
+
+                        <div class="col-md-3 col-lg-3 col-sm-6 mb-5" style="margin: auto;">
+                    <div class="card" >
+                      <div class="card-img" style="text-align: center;">
+                        <img src="/media/{{i.img}}" class="img-fluid" style="text-align: center;">
+                      </div>
+                      <div class="card-body">
+                      <h4 class="card-title">{{i.name}}</h4>
+                        <p class="card-text">{{i.appointment}}</p>
+                      </div>
+                      <div class="card-footer">
+                        <a href="facultyinfo?id={{i.id}}" class="card-link">Read more</a>
+                      </div>
+                      <div></div>
+                    </div>
+                  </div>
+
+            
+{% endfor %}
+
+</div>
+            
+</div>
+
+{%include 'footer.html'%}

@@ -1,0 +1,13 @@
+{% include 'nav.html'%}
+
+<div class="container">
+    {{data.media}}
+    {%for i in data%}
+
+    <h1 style="text-align: center;">{{i.title}}</h1>
+    {{i.desc | safe}}
+    {%endfor%}
+</div>
+
+
+{% include 'footer.html'%}

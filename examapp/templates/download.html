@@ -1,0 +1,29 @@
+{%include 'nav.html'%}
+<style>
+    .devider{
+        width: 90%;
+        border: 1px solid lightgray;
+        margin: auto;
+        margin-top: 10px;
+        padding: 30px;
+    }
+    .pra{
+        text-align: justify;
+    }
+</style>
+<div class="container" style="background-color: whitesmoke; min-height: 200px;">
+    {%for i in data%}
+    <div class="devider">
+        <h2>{{i.title}}</h2>
+        <details>
+            <summary>
+                Read Description
+            </summary>
+            <p class="pra">{{i.desc}}</p>
+        </details>
+        <a href="media/{{i.files}}" download>Download</a>
+    </div>
+    {%endfor%}
+    
+</div>
+{%include 'footer.html'%}

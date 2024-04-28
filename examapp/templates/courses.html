@@ -1,0 +1,40 @@
+{% include 'nav.html'%}
+{% load static %}
+
+<style>
+	body{
+		background-color: lightgray;
+	}
+	.card{
+		margin-top: 20px;
+        margin: auto;
+        margin-bottom: 20px;
+
+       }
+
+</style>
+<body>
+<div class="container" >
+	<div class="row">
+{%for i in courses%}
+
+
+
+  <div class="card" style="width: 25rem; max-height: 450px;" >
+	<div style="width: 60%;"><p class="card-text" style="background-color: orange; border-top-right-radius: 70px;"><i>{{i.category}}</i></p></div>	
+	<a href="/media/{{i.photo}}"><img src="/media/{{i.photo}}" style="max-height: 200px;" class="card-img-top" alt="..."></a>
+	<div class="card-body" style="max-height: 250px; overflow: auto;">
+	  <h5 class="card-title">{{i.title}}</h5>
+	  <p class="card-text">{{i.desc|safe}}</p>
+	</div>
+  </div>
+
+<br>
+{% endfor %}
+
+</div>
+</div>
+
+</body>
+{% include 'footer.html'%}
+

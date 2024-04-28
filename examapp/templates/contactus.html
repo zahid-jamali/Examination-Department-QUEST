@@ -1,0 +1,49 @@
+{%include 'nav.html'%}
+<br>
+<h2 id="h2">Contact us Page</h2>
+<div class="form">
+	<form method="post" action="#">
+{% csrf_token %}
+<div class="mb-3">
+	<label for="exampleFormControlInput1" class="form-label">Full Name</label>
+	<input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Your Name Here">
+  </div>
+
+  <div class="mb-3">
+	<label for="exampleFormControlInput1" class="form-label">Email address</label>
+	<input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+
+
+  <div class="mb-3">
+	<label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+	<textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+
+		<input type="submit" value="Send">
+		<input type="reset" value="Reset">
+	</form>
+</div>
+
+
+<br>
+<br>
+
+
+{% include 'footer.html'%}
+<style>
+	#h2{
+		text-align: center;
+		color: silver;
+	}
+.form{
+	width: 60%;
+	border: thin solid silver;
+	margin: auto;
+	padding: auto;
+	background-color: lightgray;
+	border-radius: 20px;
+	padding: 10px;
+}
+</style>

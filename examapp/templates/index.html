@@ -1,0 +1,200 @@
+{%include 'nav.html'%}
+{%load static%}
+<style>
+  .card{
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+       }
+   .slideshow-container {
+  position: relative;
+  background: #f1f1f1f1;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+  background: #ddd;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+  
+    
+body{
+    background-color: lightgray;
+}
+
+
+</style>
+<div class="" style="background-image: url({%static 'sliderengine/background.jpg'%}); width: 100%;">
+   <!-- Insert to your webpage where you want to display the slider -->
+   <div class="amazingslider-wrapper" id="amazingslider-wrapper-1" style="display:block;position:relative;max-width:900px;margin:0px auto 58px;">
+    <div class="amazingslider" id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+        <ul class="amazingslider-slides" style="display:none;">
+            <li><img src="{%static 'Pic-1-1-941x600.png'%}" alt="Pic-1-1-941x600"  title="Pic-1-1-941x600" />
+            </li>
+            <li><img src="{%static 'pic_1664299043.png'%}" alt="pic_1664299043"  title="pic_1664299043" />
+            </li>
+            <li><img src="{%static '297120998_1443695922793286_7200849288543393629_n.png'%}" alt="297120998_1443695922793286_7200849288543393629_n"  title="297120998_1443695922793286_7200849288543393629_n" />
+            </li>
+            <li><img src="{%static '295957645_1443696599459885_7379318260545530016_n.png'%}" alt="295957645_1443696599459885_7379318260545530016_n"  title="295957645_1443696599459885_7379318260545530016_n" />
+            </li>
+            <li><img src="{%static '295966114_1443696229459922_4613530072946532473_n.png'%}" alt="295966114_1443696229459922_4613530072946532473_n"  title="295966114_1443696229459922_4613530072946532473_n" />
+            </li>
+        </ul>
+        <ul class="amazingslider-thumbnails" style="display:none;">
+            <li><img src="{%static 'Pic-1-1-941x600-tn.png'%}" alt="Pic-1-1-941x600" title="Pic-1-1-941x600" /></li>
+            <li><img src="{%static 'pic_1664299043-tn.png'%}" alt="pic_1664299043" title="pic_1664299043" /></li>
+            <li><img src="{%static '297120998_1443695922793286_7200849288543393629_n-tn.png'%}" alt="297120998_1443695922793286_7200849288543393629_n" title="297120998_1443695922793286_7200849288543393629_n" /></li>
+            <li><img src="{%static '295957645_1443696599459885_7379318260545530016_n-tn.png'%}" alt="295957645_1443696599459885_7379318260545530016_n" title="295957645_1443696599459885_7379318260545530016_n" /></li>
+            <li><img src="{%static '295966114_1443696229459922_4613530072946532473_n-tn.png'%}" alt="295966114_1443696229459922_4613530072946532473_n" title="295966114_1443696229459922_4613530072946532473_n" /></li>
+        </ul>
+    <div class="amazingslider-engine"></div>
+    </div>
+</div>
+<!-- End of body section HTML codes -->
+</div>
+
+	<br>
+
+
+    <div class="container">
+        <div class="row">
+{%for i in data%}
+
+
+
+      <div class="card" style="width: 25rem; max-height: 500px;">
+        <img src="/media/{{i.img}}" class="card-img-top" style="max-height: 200px;" alt="...">
+        <div class="card-body" style="max-height: 250px; overflow: auto;">
+          <h5 class="card-title">{{i.charge}}</h5>
+          <p class="card-text">{{i.msg| safe}}</p>
+        </div>
+      </div>
+
+{% endfor %}
+  </div>
+  </div>
+
+
+<div class="container">
+    <div class="slideshow-container">
+{%for i in news%}
+
+    <!-- Full-width slides/quotes -->
+    <div class="mySlides" style="min-height: 100px;">
+      <q style="font-size: 17px; overflow: auto;">{{i.news}}</q>
+      <p class="author">- {{i.date}}</p>
+    </div>  
+    <!-- Next/prev buttons -->
+
+{%endfor%}
+<!-- Dots/bullets/indicators -->
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<div class="dot-container">
+  <!--
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  -->
+
+    {%for i in tmplist%}
+    <span class="dot" onclick="currentSlide(i)"></span>
+    {%endfor%}
+  </div>
+  
+  
+  <script>
+    var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+  showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+  showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  }
+  </script>
+  
+</div>
+
+
+
+	
+{% include 'footer.html'%}

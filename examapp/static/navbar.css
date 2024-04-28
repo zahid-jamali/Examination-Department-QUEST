@@ -1,0 +1,28 @@
+
+header{
+    		width: 100%;
+    		background-color: black;
+    		padding-bottom: 20px;
+    	}
+
+        .main_div{
+            display:inline-flex;
+        }
+        .main_div .for_img{
+            width: 40%;
+            
+        }
+        .for_img img{
+            margin-top: 20%;
+            margin-left: 20%;
+            width: 60%;
+        }
+        .for_heading{
+            line-height: normal;
+            color: skyblue;
+
+       }
+       .for_heading #pra{
+        color: skyblue;
+        font-variant: small-caps;
+       }
